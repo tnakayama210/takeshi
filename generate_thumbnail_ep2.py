@@ -3,7 +3,7 @@
 
 背景画像の生成元は次の順で選ぶ:
   1. OPENAI_API_KEY があれば OpenAI (DALL-E 3)
-  2. GEMINI_API_KEY があれば Google Gemini API (Imagen)
+  2. GEMINI_API_KEY があれば Google Gemini API (gemini-2.5-flash-image)
   3. どちらも無い / 失敗した場合は Pillow で水彩風の背景をローカル描画（フォールバック）
 
 その上に Pillow でタイトルとキャッチコピーを合成して thumbnail_ep2.png を出力する。
@@ -68,13 +68,19 @@ def generate_with_gemini() -> Image.Image:
     from google.genai import types
 
     client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
-    model = os.environ.get("GEMINI_IMAGE_MODEL", "imagen-4.0-generate-001")
-    res = client.models.generate_images(
+    model = os.environ.get("GEMINI_FLASH_IMAGE_MODEL", "gemini-2.5-flash-image")
+    res = client.models.generate_content(
         model=model,
-        prompt=IMAGE_PROMPT,
-        config=types.GenerateImagesConfig(number_of_images=1, aspect_ratio="16:9"),
+        contents=IMAGE_PROMPT,
+        config=types.GenerateContentConfig(
+            response_modalities=["IMAGE"],
+            image_config=types.ImageConfig(aspect_ratio="16:9"),
+        ),
     )
-    return Image.open(io.BytesIO(res.generated_images[0].image.image_bytes)).convert("RGB")
+    for part in res.candidates[0].content.parts:
+        if part.inline_data and part.inline_data.data:
+            return Image.open(io.BytesIO(part.inline_data.data)).convert("RGB")
+    raise RuntimeError("Gemini から画像が返りませんでした")
 
 
 def generate_fallback() -> Image.Image:
@@ -129,7 +135,7 @@ def get_background(offline: bool) -> Image.Image:
             print(f"[thumbnail] OpenAI 失敗: {e}", file=sys.stderr)
     if not offline and os.environ.get("GEMINI_API_KEY"):
         try:
-            print("[thumbnail] Gemini (Imagen) で画像を生成中...")
+            print("[thumbnail] Gemini で画像を生成中...")
             return generate_with_gemini()
         except Exception as e:  # noqa: BLE001
             print(f"[thumbnail] Gemini 失敗: {e}", file=sys.stderr)
