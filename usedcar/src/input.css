@@ -1,4 +1,4 @@
-/* 株式会社delta 中古車オークション 参加登録LP
+/* 株式会社delta 中古車販売LP
    コンポーネントは既存LP（/recruit-cleaning/）の .cta / .sec-title / .label / .arrow-link と同一定義 */
 @tailwind base;
 @tailwind components;
@@ -36,10 +36,7 @@
   .input[aria-invalid="true"] { @apply border-error bg-red-50; }
   .error-msg { @apply mt-1.5 text-xs text-error; }
 
-  /* FAQ アコーディオン */
-  .faq-q { @apply w-full flex items-start gap-4 text-left px-5 md:px-6 py-5 font-bold text-ink hover:bg-paper transition-colors; }
-  .faq-q .faq-icon { @apply relative flex-none w-4 h-4 mt-1.5 ml-auto; }
-  .faq-q .faq-icon::before, .faq-q .faq-icon::after { content:""; @apply absolute left-0 top-1/2 w-4 h-0.5 -mt-px bg-ink-2 transition-transform duration-200; }
-  .faq-q .faq-icon::after { transform: rotate(90deg); }
-  .faq-q[aria-expanded="true"] .faq-icon::after { transform: rotate(0deg); }
+  /* 車両ギャラリーのサムネイル */
+  .thumb { @apply block w-full opacity-60 hover:opacity-100 transition-opacity outline-offset-2; }
+  .thumb[aria-pressed="true"] { @apply opacity-100 ring-2 ring-delta; }
 }

@@ -1,4 +1,4 @@
-/** 株式会社delta 中古車オークションLP
+/** 株式会社delta 中古車販売LP
  *  デザイントークンは既存LP（https://delta-inc.jp/recruit-cleaning/css/style.css）から抽出した値に統一 */
 module.exports = {
   content: ['./index.html', './js/**/*.js'],

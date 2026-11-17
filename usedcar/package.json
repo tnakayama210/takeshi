@@ -1,7 +1,7 @@
 {
-  "name": "delta-auction-lp",
+  "name": "delta-usedcar-lp",
   "private": true,
-  "description": "株式会社delta 中古車オークション 参加登録LP（/auction/）",
+  "description": "株式会社delta 中古車販売LP（/usedcar/）",
   "scripts": {
     "build": "tailwindcss -i ./src/input.css -o ./css/style.css --minify",
     "watch": "tailwindcss -i ./src/input.css -o ./css/style.css --watch"
