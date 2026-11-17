@@ -10,6 +10,7 @@ Xserver のファイル管理（ユーザーはChromeでサーバーパネルに
 |---|---|---|
 | `site-update/index.html` | `index.html` | 上書き |
 | `site-update/img/main_usedcar.png` | `img/main_usedcar.png` | 新規 |
+| `site-update/img/bn_business_domain05.png` | `img/bn_business_domain05.png` | 新規 |
 | `site-update/business/index.html` | `business/index.html` | 上書き |
 | `site-update/business/img/s_title13.png` | `business/img/s_title13.png` | 新規 |
 | `site-update/business/img/photo13.jpg` | `business/img/photo13.jpg` | 新規 |
@@ -44,6 +45,10 @@ Xserver のファイル管理（ユーザーはChromeでサーバーパネルに
 - 写真はナンバー・選挙ポスター・ミラーへの人物の映り込みにぼかしを入れ、EXIFを削除済み。ぼかし前の元写真は使わないこと。
 - デザインは既存LP `/recruit-cleaning/` のトークン（`#0060AC` ほか）に揃えている。
 
+## 2026-11-17 アップロード後の追加対応（本番反映済み）
+- トップの「Business domain」に中古車販売のバナー（`bn_business_domain05.png`）を追加。リンク先は `business/?v=20261117#usedcar`（古い事業内容ページがブラウザにキャッシュされ、中古車販売の欄が見えない問題への対策）。
+- LPの問い合わせフォームを削除（電話・メールのみ）。フォーム用のJSも削除。
+- LPから会社情報・代表者の記載を削除し、「古物商許可」の欄だけにした（ユーザー指示）。
+
 ## 未対応（ユーザーに伝える）
-- LPのフォームは送信先が未設定（`data-endpoint=""` のデモモード）なので、送信しても問い合わせは届かない。当面はメールと電話で受け付ける。
 - 定休日の表記が食い違っている：既存サイトのヘッダー画像は「水曜・日曜」、LPはユーザーの指示どおり「水曜」。
