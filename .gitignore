@@ -2,3 +2,4 @@ __pycache__/
 .note_profile/
 .env
 *.log
+delta-upload.zip
