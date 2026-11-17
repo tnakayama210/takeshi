@@ -1,0 +1,29 @@
+/* 株式会社delta 特定技能外国人の派遣・紹介LP
+   コンポーネントは既存LP（/recruit-cleaning/）の .cta / .sec-title / .label / .arrow-link と同一定義 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  @media (min-width: 768px) { html { scroll-padding-top: 8rem; } }
+  [x-cloak], [hidden] { display: none !important; }
+}
+
+@layer components {
+  /* CTAボタン（既存LPと同一） */
+  .cta { display:inline-flex; align-items:center; justify-content:center; gap:.6rem; background:#0060ac; color:#fff; font-weight:700; letter-spacing:.08em; transition:background .2s; }
+  .cta:hover { background:#004a85; }
+  .cta::after { content:""; width:.45em; height:.45em; border-top:2px solid currentColor; border-right:2px solid currentColor; transform:rotate(45deg); }
+  .cta:focus-visible { outline:3px solid #0060ac; outline-offset:3px; }
+  .cta[disabled] { background:#999; cursor:wait; }
+
+  /* セクション英字見出し（既存LPと同一） */
+  .sec-title { font-family:"EB Garamond", Garamond, serif; font-weight:400; color:#333; line-height:1.1; }
+
+  /* タグラベル（既存LPと同一） */
+  .label { display:inline-block; background:rgba(40,40,40,.85); color:#fff; font-size:.75rem; letter-spacing:.1em; padding:.3rem .8rem; }
+
+  /* ナビ矢印（既存LPと同一） */
+  .arrow-link::before { content:"▶"; font-size:.55em; margin-right:.6em; vertical-align:middle; color:#333; }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "delta-jinzai-lp",
+  "private": true,
+  "description": "株式会社delta 特定技能外国人の派遣・紹介LP（/jinzai/）",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./css/style.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ./css/style.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
