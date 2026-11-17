@@ -1,0 +1,45 @@
+/* 株式会社delta 中古車オークション 参加登録LP
+   コンポーネントは既存LP（/recruit-cleaning/）の .cta / .sec-title / .label / .arrow-link と同一定義 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  @media (min-width: 768px) { html { scroll-padding-top: 8rem; } }
+  [x-cloak], [hidden] { display: none !important; }
+}
+
+@layer components {
+  /* CTAボタン（既存LPと同一） */
+  .cta { display:inline-flex; align-items:center; justify-content:center; gap:.6rem; background:#0060ac; color:#fff; font-weight:700; letter-spacing:.08em; transition:background .2s; }
+  .cta:hover { background:#004a85; }
+  .cta::after { content:""; width:.45em; height:.45em; border-top:2px solid currentColor; border-right:2px solid currentColor; transform:rotate(45deg); }
+  .cta:focus-visible { outline:3px solid #0060ac; outline-offset:3px; }
+  .cta[disabled] { background:#999; cursor:wait; }
+
+  /* セクション英字見出し（既存LPと同一） */
+  .sec-title { font-family:"EB Garamond", Garamond, serif; font-weight:400; color:#333; line-height:1.1; }
+
+  /* タグラベル（既存LPと同一） */
+  .label { display:inline-block; background:rgba(40,40,40,.85); color:#fff; font-size:.75rem; letter-spacing:.1em; padding:.3rem .8rem; }
+
+  /* ナビ矢印（既存LPと同一） */
+  .arrow-link::before { content:"▶"; font-size:.55em; margin-right:.6em; vertical-align:middle; color:#333; }
+
+  /* フォーム */
+  .field-label { @apply block text-sm font-bold text-ink mb-2; }
+  .req { @apply inline-block text-[11px] tracking-widest text-white bg-delta px-2 py-0.5 ml-2 align-middle font-normal; }
+  .opt { @apply inline-block text-[11px] tracking-widest text-ink-3 border border-line px-2 py-0.5 ml-2 align-middle font-normal; }
+  .input { @apply w-full bg-white border border-line px-4 py-3 text-base text-ink placeholder:text-ink-4 transition-colors; }
+  .input:focus { @apply outline-none border-delta ring-2 ring-delta/20; }
+  .input[aria-invalid="true"] { @apply border-error bg-red-50; }
+  .error-msg { @apply mt-1.5 text-xs text-error; }
+
+  /* FAQ アコーディオン */
+  .faq-q { @apply w-full flex items-start gap-4 text-left px-5 md:px-6 py-5 font-bold text-ink hover:bg-paper transition-colors; }
+  .faq-q .faq-icon { @apply relative flex-none w-4 h-4 mt-1.5 ml-auto; }
+  .faq-q .faq-icon::before, .faq-q .faq-icon::after { content:""; @apply absolute left-0 top-1/2 w-4 h-0.5 -mt-px bg-ink-2 transition-transform duration-200; }
+  .faq-q .faq-icon::after { transform: rotate(90deg); }
+  .faq-q[aria-expanded="true"] .faq-icon::after { transform: rotate(0deg); }
+}

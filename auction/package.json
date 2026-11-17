@@ -1,0 +1,12 @@
+{
+  "name": "delta-auction-lp",
+  "private": true,
+  "description": "株式会社delta 中古車オークション 参加登録LP（/auction/）",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./css/style.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ./css/style.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
