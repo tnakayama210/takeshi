@@ -46,8 +46,11 @@
       <div class="max-w-[960px] mx-auto md:px-4 md:pt-8">
         <div class="relative">
           <!-- 画像差し替え：img/ 内のファイルを置き換えるだけで反映（ナンバーは必ずぼかし処理済みのものを使用） -->
-          <img src="img/car-front-left.jpg" alt="deltaの取扱車両（トヨタ ランドクルーザー）" width="1200" height="1600"
-               class="w-full h-[260px] sm:h-[340px] md:h-[420px] object-cover object-[50%_62%]" fetchpriority="high">
+          <picture>
+            <source media="(max-width: 767px)" srcset="img/car-front-left.jpg">
+            <img src="img/car-front-right.jpg" alt="deltaの取扱車両（トヨタ ランドクルーザー）" width="1200" height="1600"
+                 class="w-full h-[260px] sm:h-[340px] md:h-[420px] object-cover object-[50%_62%]" fetchpriority="high">
+          </picture>
           <div class="absolute left-0 bottom-6 md:bottom-10 bg-[rgba(40,40,40,.85)] text-white px-5 md:px-8 py-3 md:py-4 text-center">
             <p class="font-serif text-2xl md:text-4xl tracking-wider leading-none">USED CAR SALES</p>
             <p class="mt-1 text-xs md:text-sm tracking-[.15em]">株式会社delta 中古車販売</p>
@@ -85,42 +88,22 @@
     <section id="stock" class="py-16 md:py-24 border-b border-line">
       <div class="max-w-[960px] mx-auto px-4">
         <h2 class="sec-title text-3xl md:text-4xl">Our Cars</h2>
-        <p class="mt-1 text-xs tracking-[.2em] text-ink-3">取扱車両のご紹介</p>
+        <p class="mt-1 text-xs tracking-[.2em] text-ink-3">取扱車両の一例</p>
 
-        <!-- 車両カード：車両を増やす場合は <article> ごと複製して写真・諸元を差し替え -->
-        <article class="mt-10 bg-white border border-line grid md:grid-cols-[1.15fr_1fr]" data-gallery>
-          <div class="p-3 md:p-4 md:border-r border-line">
-            <div class="relative">
-              <img data-gallery-main src="img/car-front-right.jpg" alt="トヨタ ランドクルーザー 外装（右前方）" width="1200" height="1600" loading="lazy"
-                   class="w-full aspect-[4/3] object-cover object-[50%_60%] bg-paper">
-            </div>
-            <ul class="mt-2 grid grid-cols-6 gap-1.5" aria-label="車両写真の切り替え">
-              <li><button type="button" class="thumb" aria-pressed="true" data-src="img/car-front-right.jpg" data-alt="トヨタ ランドクルーザー 外装（右前方）" data-pos="50% 60%"><img src="img/car-front-right.jpg" alt="外装（右前方）" loading="lazy" class="w-full aspect-square object-cover object-[50%_60%]"></button></li>
-              <li><button type="button" class="thumb" aria-pressed="false" data-src="img/car-front-left.jpg" data-alt="トヨタ ランドクルーザー 外装（左前方）" data-pos="50% 62%"><img src="img/car-front-left.jpg" alt="外装（左前方）" loading="lazy" class="w-full aspect-square object-cover object-[50%_62%]"></button></li>
-              <li><button type="button" class="thumb" aria-pressed="false" data-src="img/interior-cockpit.jpg" data-alt="運転席まわり" data-pos="50% 60%"><img src="img/interior-cockpit.jpg" alt="運転席まわり" loading="lazy" class="w-full aspect-square object-cover object-[50%_60%]"></button></li>
-              <li><button type="button" class="thumb" aria-pressed="false" data-src="img/interior-front.jpg" data-alt="助手席・センターコンソール" data-pos="50% 55%"><img src="img/interior-front.jpg" alt="助手席・センターコンソール" loading="lazy" class="w-full aspect-square object-cover object-[50%_55%]"></button></li>
-              <li><button type="button" class="thumb" aria-pressed="false" data-src="img/interior-rear.jpg" data-alt="後席とリアモニター" data-pos="50% 45%"><img src="img/interior-rear.jpg" alt="後席とリアモニター" loading="lazy" class="w-full aspect-square object-cover object-[50%_45%]"></button></li>
-              <li><button type="button" class="thumb" aria-pressed="false" data-src="img/interior-rear-2.jpg" data-alt="後席（右側）" data-pos="50% 50%"><img src="img/interior-rear-2.jpg" alt="後席（右側）" loading="lazy" class="w-full aspect-square object-cover"></button></li>
-            </ul>
+        <!-- 写真ギャラリー：写真の追加・差し替えはサムネイルの <li> を編集 -->
+        <article class="mt-10 bg-white border border-line p-3 md:p-4" data-gallery>
+          <div class="relative">
+            <img data-gallery-main src="img/car-front-left.jpg" alt="トヨタ ランドクルーザー 外装（左前方）" width="1200" height="1600" loading="lazy"
+                 class="w-full aspect-[4/3] md:aspect-[16/9] object-cover object-[50%_62%] bg-paper">
           </div>
-
-          <div class="p-6 md:p-8 flex flex-col">
-            <p class="text-xs tracking-[.2em] text-ink-3">TOYOTA</p>
-            <h3 class="mt-1 text-xl md:text-2xl font-bold text-ink leading-snug">トヨタ ランドクルーザー</h3>
-
-            <!-- 要確認：諸元・価格は実車の情報に差し替え -->
-            <dl class="mt-5 grid grid-cols-[6.5em_1fr] text-sm border-t border-line">
-              <dt class="py-2.5 border-b border-line text-ink-3">年式</dt><dd class="py-2.5 border-b border-line text-ink-2">〇〇〇〇年</dd>
-              <dt class="py-2.5 border-b border-line text-ink-3">走行距離</dt><dd class="py-2.5 border-b border-line text-ink-2">〇〇,〇〇〇km</dd>
-              <dt class="py-2.5 border-b border-line text-ink-3">グレード</dt><dd class="py-2.5 border-b border-line text-ink-2">〇〇</dd>
-              <dt class="py-2.5 border-b border-line text-ink-3">車検</dt><dd class="py-2.5 border-b border-line text-ink-2">〇〇〇〇年〇月</dd>
-              <dt class="py-2.5 border-b border-line text-ink-3">価格</dt><dd class="py-2.5 border-b border-line font-bold text-ink">お問い合わせください</dd>
-            </dl>
-
-            <div class="mt-auto pt-6">
-              <a href="#contact" class="cta w-full py-4" data-inquiry-car="トヨタ ランドクルーザー">この車両について問い合わせる</a>
-            </div>
-          </div>
+          <ul class="mt-2 grid grid-cols-6 gap-1.5 md:gap-2" aria-label="車両写真の切り替え">
+            <li><button type="button" class="thumb" aria-pressed="true" data-src="img/car-front-left.jpg" data-alt="トヨタ ランドクルーザー 外装（左前方）" data-pos="50% 62%"><img src="img/car-front-left.jpg" alt="外装（左前方）" loading="lazy" class="w-full aspect-square object-cover object-[50%_62%]"></button></li>
+            <li><button type="button" class="thumb" aria-pressed="false" data-src="img/car-front-right.jpg" data-alt="トヨタ ランドクルーザー 外装（右前方）" data-pos="50% 70%"><img src="img/car-front-right.jpg" alt="外装（右前方）" loading="lazy" class="w-full aspect-square object-cover object-[50%_60%]"></button></li>
+            <li><button type="button" class="thumb" aria-pressed="false" data-src="img/interior-cockpit.jpg" data-alt="運転席まわり" data-pos="50% 60%"><img src="img/interior-cockpit.jpg" alt="運転席まわり" loading="lazy" class="w-full aspect-square object-cover object-[50%_60%]"></button></li>
+            <li><button type="button" class="thumb" aria-pressed="false" data-src="img/interior-front.jpg" data-alt="助手席・センターコンソール" data-pos="50% 55%"><img src="img/interior-front.jpg" alt="助手席・センターコンソール" loading="lazy" class="w-full aspect-square object-cover object-[50%_55%]"></button></li>
+            <li><button type="button" class="thumb" aria-pressed="false" data-src="img/interior-rear.jpg" data-alt="後席とリアモニター" data-pos="50% 45%"><img src="img/interior-rear.jpg" alt="後席とリアモニター" loading="lazy" class="w-full aspect-square object-cover object-[50%_45%]"></button></li>
+            <li><button type="button" class="thumb" aria-pressed="false" data-src="img/interior-rear-2.jpg" data-alt="後席（右側）" data-pos="50% 50%"><img src="img/interior-rear-2.jpg" alt="後席（右側）" loading="lazy" class="w-full aspect-square object-cover"></button></li>
+          </ul>
         </article>
 
       </div>
@@ -151,7 +134,7 @@
               </tr>
               <tr class="flex flex-col md:table-row">
                 <th class="md:w-44 text-left align-top bg-paper font-medium text-ink px-5 md:px-6 py-3 md:py-5">事業内容</th>
-                <td class="px-5 md:px-6 py-4 md:py-5 text-ink-2">中古車販売／不動産コンサルティング／シェアハウス運営 ほか</td>
+                <td class="px-5 md:px-6 py-4 md:py-5 text-ink-2">中古車販売</td>
               </tr>
               <tr class="flex flex-col md:table-row">
                 <th class="md:w-44 text-left align-top bg-paper font-medium text-ink px-5 md:px-6 py-3 md:py-5">お問い合わせ</th>

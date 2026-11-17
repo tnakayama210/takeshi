@@ -28,14 +28,6 @@
   var summary = document.getElementById('form-error-summary');
   var submitBtn = form.querySelector('button[type="submit"]');
 
-  // 「この車両について問い合わせる」→ お問い合わせ内容に車名を入れる
-  document.querySelectorAll('[data-inquiry-car]').forEach(function (a) {
-    a.addEventListener('click', function () {
-      var msg = form.elements.message;
-      if (!msg.value.trim()) msg.value = a.dataset.inquiryCar + 'について\n';
-    });
-  });
-
   // 全角英数字・記号 → 半角
   function toHalfWidth(s) {
     return s.replace(/[！-～]/g, function (c) { return String.fromCharCode(c.charCodeAt(0) - 0xfee0); })
