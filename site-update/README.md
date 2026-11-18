@@ -8,6 +8,7 @@
 |---|---|---|
 | `index.html` | 上書き | トップのスライダーの先頭に「USED CAR SALES／中古車販売」のスライドを追加（リンク先は `/usedcar/`） |
 | `img/main_usedcar.png` | 新規 | スライド画像（960×314、既存スライドと同じ帯のデザイン。ナンバーは写らない範囲で切り抜き） |
+| `img/bn_business_domain06.png` | 新規 | トップ「Business domain」の6つ目のバナー「人材事業」（写真は事業内容ページの photo10.jpg）。リンク先は `jinzai/` |
 | `img/bn_business_domain05.png` | 新規 | トップ「Business domain」の5つ目のバナー「中古車販売」（228×258、既存バナーと同じ体裁。ナンバーはぼかし済み）。リンク先は `business/?v=20261117#usedcar`（古い事業内容ページのキャッシュを避けるため） |
 | `business/index.html` | 上書き | 事業内容ページに「中古車販売事業」の欄を追加し、冒頭の文に「中古車販売」を追記 |
 | `business/img/s_title13.png` | 新規 | 見出し画像「中古車販売事業」 |
